@@ -169,11 +169,11 @@
 
     <!-- Audio Controls -->
     <div class="fixed top-4 right-4 z-50">
-      <div class="glass rounded-2xl px-4 py-3 flex items-center gap-4">
+      <div class="glass rounded-2xl px-3 py-2 md:px-4 md:py-3 flex items-center gap-2 md:gap-4">
         <!-- Mute/Play Toggle -->
         <button 
           id="audioToggle" 
-          class="relative w-12 h-12 rounded-xl bg-valley-purple/20 hover:bg-valley-purple/40 transition-all duration-300 flex items-center justify-center group"
+          class="relative w-10 h-10 md:w-12 md:h-12 rounded-xl bg-valley-purple/20 hover:bg-valley-purple/40 transition-all duration-300 flex items-center justify-center group"
           title="Reproducir/Pausar"
           aria-label="Reproducir o pausar música"
         >
@@ -187,8 +187,8 @@
           </svg>
         </button>
         
-        <!-- Volume Slider Container -->
-        <div class="flex items-center gap-3">
+        <!-- Volume Slider Container (hidden on mobile) -->
+        <div class="hidden md:flex items-center gap-3">
           <svg class="w-4 h-4 text-valley-sand/60" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
           </svg>
@@ -206,8 +206,8 @@
           </svg>
         </div>
       </div>
-      <!-- Song Title Marquee -->
-      <div class="glass rounded-xl mt-2 px-3 py-1 flex items-center gap-2">
+      <!-- Song Title Marquee (hidden on mobile) -->
+      <div class="hidden md:flex glass rounded-xl mt-2 px-3 py-1 items-center gap-2">
         <span class="text-xs text-valley-lavender font-medium whitespace-nowrap">Reproduciendo:</span>
         <div class="marquee-container overflow-hidden flex-1">
           <div class="marquee-track">
