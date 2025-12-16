@@ -92,99 +92,43 @@
   </head>
 
   <body class="text-valley-cream font-sans antialiased overflow-x-hidden">
-    <!-- Decorative floating elements (distributed over page) -->
+    <!-- Decorative floating elements (distributed across entire page) -->
     <div class="fixed inset-0 pointer-events-none opacity-20">
-      <!-- Top-left cluster -->
-      <div
-        class="absolute top-8 left-8 text-6xl floating"
-        style="animation-delay: 0s"
-      >
-        🌿
-      </div>
+      <!-- Row 1: Top -->
+      <div class="absolute top-[5%] left-[8%] text-4xl floating" style="animation-delay: 0s">🌿</div>
+      <div class="absolute top-[8%] left-[35%] text-4xl floating" style="animation-delay: 1.2s">🌾</div>
+      <div class="absolute top-[6%] right-[30%] text-4xl floating" style="animation-delay: 0.6s">⭐</div>
+      <div class="absolute top-[5%] right-[8%] text-4xl floating" style="animation-delay: 1.8s">🎵</div>
 
-      <!-- Top-right cluster -->
-      <div
-        class="absolute top-10 right-10 text-5xl floating"
-        style="animation-delay: 0.6s"
-      >
-        🎵
-      </div>
-      <div
-        class="absolute top-28 right-20 text-4xl floating"
-        style="animation-delay: 1.4s"
-      >
-        🌾
-      </div>
+      <!-- Row 2: Upper -->
+      <div class="absolute top-[20%] left-[5%] text-4xl floating" style="animation-delay: 2.4s">🎶</div>
+      <div class="absolute top-[22%] left-[42%] text-4xl floating" style="animation-delay: 0.9s">🌻</div>
+      <div class="absolute top-[18%] right-[15%] text-4xl floating" style="animation-delay: 3s">🎣</div>
 
-      <!-- Center soft cluster -->
-      <div
-        class="absolute top-1/3 left-1/2 -translate-x-1/2 text-5xl floating"
-        style="animation-delay: 1s; opacity: 0.18"
-      >
-        🌱
-      </div>
-      <div
-        class="absolute top-40 left-1/2 -translate-x-1/2 text-4xl floating"
-        style="animation-delay: 1.6s; opacity: 0.14"
-      >
-        ⭐
-      </div>
-      <div
-        class="absolute top-48 left-1/2 -translate-x-1/2 text-4xl floating"
-        style="animation-delay: 2.2s; opacity: 0.12"
-      >
-        ✨
-      </div>
+      <!-- Row 3: Mid-upper -->
+      <div class="absolute top-[35%] left-[15%] text-4xl floating" style="animation-delay: 1.5s">🐝</div>
+      <div class="absolute top-[38%] left-[55%] text-4xl floating" style="animation-delay: 2.1s">✨</div>
+      <div class="absolute top-[32%] right-[10%] text-4xl floating" style="animation-delay: 0.3s">🎼</div>
 
-      <!-- Left mid / right mid accents -->
-      <div
-        class="absolute top-2/5 left-16 text-4xl floating"
-        style="animation-delay: 1.8s"
-      >
-        🎶
-      </div>
-      <div
-        class="absolute top-1/2 right-1/4 text-4xl floating"
-        style="animation-delay: 2s"
-      >
-        🎼
-      </div>
+      <!-- Row 4: Center -->
+      <div class="absolute top-[48%] left-[8%] text-4xl floating" style="animation-delay: 2.7s">🌸</div>
+      <div class="absolute top-[52%] left-[48%] text-4xl floating" style="animation-delay: 1.8s">🦋</div>
+      <div class="absolute top-[45%] right-[20%] text-4xl floating" style="animation-delay: 3.3s">💎</div>
 
-      <!-- Lower clusters -->
-      <div
-        class="absolute bottom-28 left-1/4 text-5xl floating"
-        style="animation-delay: 2.6s"
-      >
-        🍓
-      </div>
-      <div
-        class="absolute bottom-32 right-1/3 text-4xl floating"
-        style="animation-delay: 3s"
-      >
-        🥕
-      </div>
+      <!-- Row 5: Mid-lower -->
+      <div class="absolute top-[62%] left-[20%] text-4xl floating" style="animation-delay: 0.6s">🍃</div>
+      <div class="absolute top-[65%] left-[60%] text-4xl floating" style="animation-delay: 2.4s">🌼</div>
+      <div class="absolute top-[68%] right-[8%] text-4xl floating" style="animation-delay: 1.2s">🥕</div>
 
-      <!-- Scattered accents to cover full area -->
-      <div
-        class="absolute top-3/4 left-3/4 text-4xl floating"
-        style="animation-delay: 2.8s"
-      >
-        🍃
-      </div>
-      <div
-        class="absolute top-1/6 left-3/4 text-4xl floating"
-        style="animation-delay: 1.2s"
-      >
-        🎣
-      </div>
-      
-      <!-- New Diamond Item -->
-      <div
-        class="absolute top-2/3 right-1/5 text-5xl floating"
-        style="animation-delay: 3.5s"
-      >
-        💎
-      </div>
+      <!-- Row 6: Lower -->
+      <div class="absolute top-[78%] left-[10%] text-4xl floating" style="animation-delay: 3.6s">🍂</div>
+      <div class="absolute top-[82%] left-[45%] text-4xl floating" style="animation-delay: 0.9s">🌱</div>
+      <div class="absolute top-[80%] right-[25%] text-4xl floating" style="animation-delay: 2.1s">🍄</div>
+
+      <!-- Row 7: Bottom -->
+      <div class="absolute bottom-[5%] left-[15%] text-4xl floating" style="animation-delay: 1.5s">🌷</div>
+      <div class="absolute bottom-[8%] left-[50%] text-4xl floating" style="animation-delay: 2.7s">🐌</div>
+      <div class="absolute bottom-[5%] right-[12%] text-4xl floating" style="animation-delay: 0s">🌸</div>
     </div>
 
     <main
@@ -210,7 +154,7 @@
         <section class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div class="glass rounded-2xl p-8">
             <div class="text-5xl mb-4">🌱</div>
-            <h3 class="text-2xl mb-3 text-valley-sand font-medium">Planta</h3>
+            <h3 class="text-2xl mb-3 text-valley-sand font-medium"><strong>Planta</strong></h3>
             <p class="text-valley-sand/80">
               Siembra lo que quieras. Las cosas crecen a su propio ritmo.
             </p>
@@ -218,7 +162,7 @@
 
           <div class="glass rounded-2xl p-8">
             <div class="text-5xl mb-4">🎣</div>
-            <h3 class="text-2xl mb-3 text-valley-sand font-medium">Pesca</h3>
+            <h3 class="text-2xl mb-3 text-valley-sand font-medium"><strong>Pesca</strong></h3>
             <p class="text-valley-sand/80">
               Lanza la caña y deja que el momento llegue.
             </p>
@@ -226,7 +170,7 @@
 
           <div class="glass rounded-2xl p-8">
             <div class="text-5xl mb-4">⛏️</div>
-            <h3 class="text-2xl mb-3 text-valley-sand font-medium">Explora</h3>
+            <h3 class="text-2xl mb-3 text-valley-sand font-medium"><strong>Explora</strong></h3>
             <p class="text-valley-sand/80">
               Bajo tierra hay piedra, eco y tiempo. Camina despacio.
             </p>
