@@ -7,6 +7,9 @@
       name="description"
       content="Lo-Fi Valley es un refugio digital con música lo-fi, calma y exploración. Sin anuncios, sin distracciones, solo un espacio para relajarte."
     />
+    <meta name="keywords" content="lo-fi, música relajante, juego de granja, chill game, música lo-fi, refugio digital, relax, calm" />
+    <meta name="author" content="Arky" />
+    <meta name="theme-color" content="#4A3C2F" />
     
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/public/favicon/favicon.ico" />
@@ -25,12 +28,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="Lo-Fi Valley" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Lo-Fi Valley — Tu refugio digital" />
     <meta name="twitter:description" content="Un refugio digital con música lo-fi, calma y exploración." />
-    <meta name="twitter:image" content="https://lofivalley.com/logo_background.png" />
+    <meta name="twitter:image" content="https://lofivalley.com/public/images/logo_background.png" />
     
     <!-- Hreflang for multilingual -->
     <link rel="alternate" hreflang="es" href="https://lofivalley.com/es/" />
@@ -39,6 +43,29 @@
     <link rel="canonical" href="https://lofivalley.com/es/" />
     
     <title>Lo-Fi Valley — Tu refugio digital</title>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Lo-Fi Valley",
+      "alternateName": "LoFi Valley",
+      "url": "https://lofivalley.com",
+      "description": "Un refugio digital con música lo-fi, calma y exploración.",
+      "inLanguage": ["es", "en"],
+      "author": {
+        "@type": "Person",
+        "name": "Arky",
+        "url": "https://github.com/leoocast"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://lofivalley.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
