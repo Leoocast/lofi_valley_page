@@ -3,6 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="0; url=/es/" />
+    <meta
+      name="description"
+      content="Lo-Fi Valley es un refugio digital con música lo-fi, calma y exploración. Sin anuncios, sin distracciones, solo un espacio para relajarte."
+    />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/public/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/public/favicon/site.webmanifest" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Lo-Fi Valley — Tu refugio digital" />
+    <meta property="og:description" content="Un refugio digital con música lo-fi, calma y exploración." />
+    <meta property="og:image" content="https://lofivalley.com/public/images/logo_background.png" />
+    <meta property="og:url" content="https://lofivalley.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_US" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lo-Fi Valley — Tu refugio digital" />
+    <meta name="twitter:description" content="Un refugio digital con música lo-fi, calma y exploración." />
+    <meta name="twitter:image" content="https://lofivalley.com/logo_background.png" />
+    
+    <!-- Hreflang for multilingual -->
+    <link rel="alternate" hreflang="es" href="https://lofivalley.com/es/" />
+    <link rel="alternate" hreflang="en" href="https://lofivalley.com/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://lofivalley.com/es/" />
+    <link rel="canonical" href="https://lofivalley.com" />
+    
     <title>Lo-Fi Valley — Tu refugio digital</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -92,6 +126,157 @@
   </head>
 
   <body class="text-valley-cream font-sans antialiased overflow-x-hidden">
+    <!-- Background Music -->
+    <audio id="bgMusic" loop preload="metadata" aria-label="Música de fondo Lo-Fi Valley">
+      <source src="Lo-Fi_Valley_Main_Theme.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Audio Controls -->
+    <div class="fixed top-4 right-4 z-50">
+      <div class="glass rounded-2xl px-4 py-3 flex items-center gap-4">
+        <!-- Mute/Play Toggle -->
+        <button 
+          id="audioToggle" 
+          class="relative w-12 h-12 rounded-xl bg-valley-purple/20 hover:bg-valley-purple/40 transition-all duration-300 flex items-center justify-center group"
+          title="Reproducir/Pausar"
+        >
+          <!-- Play Icon -->
+          <svg id="playIcon" class="w-5 h-5 text-valley-cream" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <!-- Pause Icon (hidden by default) -->
+          <svg id="pauseIcon" class="w-5 h-5 text-valley-cream hidden" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+          </svg>
+        </button>
+        
+        <!-- Volume Slider Container -->
+        <div class="flex items-center gap-3">
+          <svg class="w-4 h-4 text-valley-sand/60" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+          </svg>
+          <input 
+            type="range" 
+            id="volumeSlider" 
+            min="0" 
+            max="100" 
+            value="50"
+            class="volume-slider w-24 h-2 rounded-full appearance-none cursor-pointer"
+          />
+          <svg class="w-5 h-5 text-valley-sand/60" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Song Title Marquee -->
+      <div class="glass rounded-xl mt-2 px-3 py-1 flex items-center gap-2">
+        <span class="text-xs text-valley-lavender font-medium whitespace-nowrap">Now Playing:</span>
+        <div class="marquee-container overflow-hidden flex-1">
+          <div class="marquee-track">
+            <span class="marquee-text text-xs text-valley-sand/80 whitespace-nowrap">♫ Lo-Fi Valley Main Theme ♫</span>
+            <span class="marquee-text text-xs text-valley-sand/80 whitespace-nowrap">♫ Lo-Fi Valley Main Theme ♫</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .volume-slider {
+        background: linear-gradient(to right, #B5A5C9 0%, #B5A5C9 50%, rgba(255,248,240,0.2) 50%, rgba(255,248,240,0.2) 100%);
+      }
+      .volume-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #FFF8F0;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        transition: transform 0.2s;
+      }
+      .volume-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+      }
+      .volume-slider::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #FFF8F0;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      }
+      
+      .marquee-container {
+        width: 140px;
+      }
+      
+      .marquee-track {
+        display: flex;
+        width: fit-content;
+        animation: marquee 8s linear infinite;
+      }
+      
+      .marquee-text {
+        padding-right: 2rem;
+      }
+      
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+
+    <script>
+      const audio = document.getElementById('bgMusic');
+      const audioToggle = document.getElementById('audioToggle');
+      const playIcon = document.getElementById('playIcon');
+      const pauseIcon = document.getElementById('pauseIcon');
+      const volumeSlider = document.getElementById('volumeSlider');
+      
+      audio.volume = 0.5;
+      let isPlaying = false;
+
+      function updateSliderBackground() {
+        const value = volumeSlider.value;
+        volumeSlider.style.background = `linear-gradient(to right, #B5A5C9 0%, #B5A5C9 ${value}%, rgba(255,248,240,0.2) ${value}%, rgba(255,248,240,0.2) 100%)`;
+      }
+
+      function updateIcons() {
+        if (isPlaying && !audio.paused) {
+          playIcon.classList.add('hidden');
+          pauseIcon.classList.remove('hidden');
+        } else {
+          playIcon.classList.remove('hidden');
+          pauseIcon.classList.add('hidden');
+        }
+      }
+
+      audioToggle.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play().then(() => {
+            isPlaying = true;
+            updateIcons();
+          }).catch(() => {});
+        } else {
+          audio.pause();
+          isPlaying = false;
+          updateIcons();
+        }
+      });
+
+      volumeSlider.addEventListener('input', () => {
+        audio.volume = volumeSlider.value / 100;
+        updateSliderBackground();
+      });
+
+      // Initialize slider background
+      updateSliderBackground();
+    </script>
     <!-- Decorative floating elements (distributed across entire page) -->
     <div class="fixed inset-0 pointer-events-none opacity-20">
       <!-- Row 1: Top -->
@@ -139,7 +324,7 @@
         <header class="text-center space-y-6">
           <img
             src="logo.png"
-            alt="Lo-Fi Valley"
+            alt="Lo-Fi Valley, un refugio digital con música lo-fi"
             class="w-full max-w-3xl mx-auto drop-shadow-2xl"
           />
 
@@ -196,5 +381,23 @@
         </footer>
       </div>
     </main>
+
+    <!-- Site Footer -->
+    <footer class="fixed bottom-0 left-0 right-0 py-3 px-6 z-10">
+      <div class="flex items-center justify-between">
+        <p class="text-valley-sand/60 text-sm">
+          Made with ❤️ by 
+          <a 
+            href="https://github.com/leoocast" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-valley-lavender hover:text-valley-purple transition-colors"
+          >Arky</a>
+        </p>
+        <p class="text-valley-sand/40 text-xs">
+          © 2026 Lo-Fi Valley
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,118 @@
+/* Lo-Fi Valley - Shared Styles */
+
+/* Base Body Gradient */
+body {
+  background: linear-gradient(
+    135deg,
+    #4a3c2f 0%,
+    #3a4f5c 35%,
+    #8b7ba8 70%,
+    #6b5444 100%
+  );
+  min-height: 100vh;
+}
+
+/* Glass Morphism Effect */
+.glass {
+  background: rgba(255, 248, 240, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 248, 240, 0.15);
+}
+
+/* Floating Animation */
+.floating {
+  animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+/* Fade In Animation */
+.fade-in {
+  animation: fadeIn 1.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Volume Slider Styling */
+.volume-slider {
+  background: linear-gradient(to right, #B5A5C9 0%, #B5A5C9 50%, rgba(255,248,240,0.2) 50%, rgba(255,248,240,0.2) 100%);
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #FFF8F0;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #FFF8F0;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Marquee Animation */
+.marquee-container {
+  width: 140px;
+}
+
+.marquee-track {
+  display: flex;
+  width: fit-content;
+  animation: marquee 8s linear infinite;
+}
+
+.marquee-text {
+  padding-right: 2rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Screen Reader Only (Accessibility) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Lo-Fi Valley is a digital sanctuary with lo-fi music, calm, and exploration. No ads, no distractions, just a space to relax."
+    />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/public/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/public/favicon/site.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Lo-Fi Valley — Your digital sanctuary" />
+    <meta property="og:description" content="A digital sanctuary with lo-fi music, calm, and exploration." />
+    <meta property="og:image" content="https://lofivalley.com/public/images/logo_background.png" />
+    <meta property="og:url" content="https://lofivalley.com/en/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lo-Fi Valley — Your digital sanctuary" />
+    <meta name="twitter:description" content="A digital sanctuary with lo-fi music, calm, and exploration." />
+    <meta name="twitter:image" content="https://lofivalley.com/logo_background.png" />
+    
+    <!-- Hreflang for multilingual -->
+    <link rel="alternate" hreflang="es" href="https://lofivalley.com/es/" />
+    <link rel="alternate" hreflang="en" href="https://lofivalley.com/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://lofivalley.com/es/" />
+    <link rel="canonical" href="https://lofivalley.com/en/" />
+    
+    <title>Lo-Fi Valley — Your digital sanctuary</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/shared/styles.css" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              valley: {
+                cream: "#FFF8F0",
+                sand: "#F5E6D3",
+                tan: "#E8D4B0",
+                coffee: "#6B5444",
+                espresso: "#4A3C2F",
+                dark: "#2D1F15",
+                purple: "#8B7BA8",
+                lavender: "#B5A5C9",
+                navy: "#3A4F5C",
+                teal: "#5C7B7D",
+                sage: "#A8C5A5",
+                moss: "#7A9B7E",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      }
+    </script>
+
+    <style>
+      body {
+        background: linear-gradient(
+          135deg,
+          #4a3c2f 0%,
+          #3a4f5c 35%,
+          #8b7ba8 70%,
+          #6b5444 100%
+        );
+        min-height: 100vh;
+      }
+
+      .glass {
+        background: rgba(255, 248, 240, 0.08);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 248, 240, 0.15);
+      }
+
+      .floating {
+        animation: float 10s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-18px);
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn 1.2s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+
+  <body class="text-valley-cream font-sans antialiased overflow-x-hidden">
+    <!-- Language Switcher -->
+    <div class="fixed top-4 left-4 z-50">
+      <a href="/es/" class="glass rounded-full px-3 py-2 text-xs text-valley-sand/80 hover:text-valley-cream transition-colors flex items-center gap-1">
+        🌐 ES
+      </a>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop preload="metadata" aria-label="Lo-Fi Valley background music">
+      <source src="/public/music/lofi-valley-main-theme.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Audio Controls -->
+    <div class="fixed top-4 right-4 z-50">
+      <div class="glass rounded-2xl px-4 py-3 flex items-center gap-4">
+        <!-- Mute/Play Toggle -->
+        <button 
+          id="audioToggle" 
+          class="relative w-12 h-12 rounded-xl bg-valley-purple/20 hover:bg-valley-purple/40 transition-all duration-300 flex items-center justify-center group"
+          title="Play/Pause"
+          aria-label="Play or pause music"
+        >
+          <!-- Play Icon -->
+          <svg id="playIcon" class="w-5 h-5 text-valley-cream" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <!-- Pause Icon (hidden by default) -->
+          <svg id="pauseIcon" class="w-5 h-5 text-valley-cream hidden" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+          </svg>
+        </button>
+        
+        <!-- Volume Slider Container -->
+        <div class="flex items-center gap-3">
+          <svg class="w-4 h-4 text-valley-sand/60" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+          </svg>
+          <input 
+            type="range" 
+            id="volumeSlider" 
+            min="0" 
+            max="100" 
+            value="50"
+            class="volume-slider w-24 h-2 rounded-full appearance-none cursor-pointer"
+            aria-label="Volume control"
+          />
+          <svg class="w-5 h-5 text-valley-sand/60" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Song Title Marquee -->
+      <div class="glass rounded-xl mt-2 px-3 py-1 flex items-center gap-2">
+        <span class="text-xs text-valley-lavender font-medium whitespace-nowrap">Now Playing:</span>
+        <div class="marquee-container overflow-hidden flex-1">
+          <div class="marquee-track">
+            <span class="marquee-text text-xs text-valley-sand/80 whitespace-nowrap">♫ Lo-Fi Valley Main Theme ♫</span>
+            <span class="marquee-text text-xs text-valley-sand/80 whitespace-nowrap">♫ Lo-Fi Valley Main Theme ♫</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .volume-slider {
+        background: linear-gradient(to right, #B5A5C9 0%, #B5A5C9 50%, rgba(255,248,240,0.2) 50%, rgba(255,248,240,0.2) 100%);
+      }
+      .volume-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #FFF8F0;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        transition: transform 0.2s;
+      }
+      .volume-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+      }
+      .volume-slider::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #FFF8F0;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      }
+      
+      .marquee-container {
+        width: 140px;
+      }
+      
+      .marquee-track {
+        display: flex;
+        width: fit-content;
+        animation: marquee 8s linear infinite;
+      }
+      
+      .marquee-text {
+        padding-right: 2rem;
+      }
+      
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+
+    <script>
+      const audio = document.getElementById('bgMusic');
+      const audioToggle = document.getElementById('audioToggle');
+      const playIcon = document.getElementById('playIcon');
+      const pauseIcon = document.getElementById('pauseIcon');
+      const volumeSlider = document.getElementById('volumeSlider');
+      
+      audio.volume = 0.5;
+      let isPlaying = false;
+
+      function updateSliderBackground() {
+        const value = volumeSlider.value;
+        volumeSlider.style.background = `linear-gradient(to right, #B5A5C9 0%, #B5A5C9 ${value}%, rgba(255,248,240,0.2) ${value}%, rgba(255,248,240,0.2) 100%)`;
+      }
+
+      function updateIcons() {
+        if (isPlaying && !audio.paused) {
+          playIcon.classList.add('hidden');
+          pauseIcon.classList.remove('hidden');
+        } else {
+          playIcon.classList.remove('hidden');
+          pauseIcon.classList.add('hidden');
+        }
+      }
+
+      audioToggle.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play().then(() => {
+            isPlaying = true;
+            updateIcons();
+          }).catch(() => {});
+        } else {
+          audio.pause();
+          isPlaying = false;
+          updateIcons();
+        }
+      });
+
+      volumeSlider.addEventListener('input', () => {
+        audio.volume = volumeSlider.value / 100;
+        updateSliderBackground();
+      });
+
+      // Initialize slider background
+      updateSliderBackground();
+    </script>
+    <!-- Decorative floating elements (distributed across entire page) -->
+    <div class="fixed inset-0 pointer-events-none opacity-20">
+      <!-- Row 1: Top -->
+      <div class="absolute top-[5%] left-[8%] text-4xl floating" style="animation-delay: 0s">🌿</div>
+      <div class="absolute top-[8%] left-[35%] text-4xl floating" style="animation-delay: 1.2s">🌾</div>
+      <div class="absolute top-[6%] right-[30%] text-4xl floating" style="animation-delay: 0.6s">⭐</div>
+      <div class="absolute top-[5%] right-[8%] text-4xl floating" style="animation-delay: 1.8s">🎵</div>
+
+      <!-- Row 2: Upper -->
+      <div class="absolute top-[20%] left-[5%] text-4xl floating" style="animation-delay: 2.4s">🎶</div>
+      <div class="absolute top-[22%] left-[42%] text-4xl floating" style="animation-delay: 0.9s">🌻</div>
+      <div class="absolute top-[18%] right-[15%] text-4xl floating" style="animation-delay: 3s">🍅</div>
+
+      <!-- Row 3: Mid-upper -->
+      <div class="absolute top-[35%] left-[15%] text-4xl floating" style="animation-delay: 1.5s">🐝</div>
+      <div class="absolute top-[38%] left-[55%] text-4xl floating" style="animation-delay: 2.1s">✨</div>
+      <div class="absolute top-[32%] right-[10%] text-4xl floating" style="animation-delay: 0.3s">🎼</div>
+
+      <!-- Row 4: Center -->
+      <div class="absolute top-[48%] left-[8%] text-4xl floating" style="animation-delay: 2.7s">🌸</div>
+      <div class="absolute top-[52%] left-[48%] text-4xl floating" style="animation-delay: 1.8s">🦋</div>
+      <div class="absolute top-[45%] right-[20%] text-4xl floating" style="animation-delay: 3.3s">💎</div>
+
+      <!-- Row 5: Mid-lower -->
+      <div class="absolute top-[62%] left-[20%] text-4xl floating" style="animation-delay: 0.6s">🍃</div>
+      <div class="absolute top-[65%] left-[60%] text-4xl floating" style="animation-delay: 2.4s">🌼</div>
+      <div class="absolute top-[68%] right-[8%] text-4xl floating" style="animation-delay: 1.2s">🥕</div>
+
+      <!-- Row 6: Lower -->
+      <div class="absolute top-[78%] left-[10%] text-4xl floating" style="animation-delay: 3.6s">🍂</div>
+      <div class="absolute top-[82%] left-[45%] text-4xl floating" style="animation-delay: 0.9s">🌱</div>
+      <div class="absolute top-[80%] right-[25%] text-4xl floating" style="animation-delay: 2.1s">🍄</div>
+
+      <!-- Row 7: Bottom -->
+      <div class="absolute bottom-[5%] left-[15%] text-4xl floating" style="animation-delay: 1.5s">🌷</div>
+      <div class="absolute bottom-[8%] left-[50%] text-4xl floating" style="animation-delay: 2.7s">🐌</div>
+      <div class="absolute bottom-[5%] right-[12%] text-4xl floating" style="animation-delay: 0s">🌸</div>
+    </div>
+
+    <main
+      class="relative min-h-screen flex items-center justify-center px-6 py-12 md:py-16"
+    >
+      <div class="max-w-5xl w-full space-y-16 fade-in">
+        <!-- Header -->
+        <header class="text-center space-y-6">
+          <img
+            src="/public/images/logo.png"
+            alt="Lo-Fi Valley, a digital sanctuary with lo-fi music"
+            class="w-full max-w-3xl mx-auto drop-shadow-2xl"
+          />
+          <h1 class="sr-only">Lo-Fi Valley — A digital sanctuary with lo-fi music</h1>
+
+          <div class="glass inline-block px-8 py-3 rounded-full">
+            <p class="text-sm tracking-[0.2em] uppercase text-valley-sand">
+              ✨ Lo-fi music · No ads · No distractions ✨
+            </p>
+          </div>
+        </header>
+
+        <!-- Core activities -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div class="glass rounded-2xl p-8">
+            <div class="text-5xl mb-4">🌱</div>
+            <h3 class="text-2xl mb-3 text-valley-sand font-medium"><strong>Plant</strong></h3>
+            <p class="text-valley-sand/80">
+              Grow whatever you want. Things bloom at their own pace.
+            </p>
+          </div>
+
+          <div class="glass rounded-2xl p-8">
+            <div class="text-5xl mb-4">🎣</div>
+            <h3 class="text-2xl mb-3 text-valley-sand font-medium"><strong>Fish</strong></h3>
+            <p class="text-valley-sand/80">
+              Cast your line and let the moment arrive.
+            </p>
+          </div>
+
+          <div class="glass rounded-2xl p-8">
+            <div class="text-5xl mb-4">⛏️</div>
+            <h3 class="text-2xl mb-3 text-valley-sand font-medium"><strong>Explore</strong></h3>
+            <p class="text-valley-sand/80">
+              Below the surface lies stone, echoes, and time. Walk slowly.
+            </p>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center space-y-6">
+          <button
+            disabled
+            class="relative inline-flex items-center gap-4 px-20 py-7 rounded-full text-xl font-semibold tracking-wide cursor-not-allowed overflow-hidden shadow-[0_12px_48px_rgba(139,123,168,0.5)] border-2 border-valley-purple/50"
+          >
+            <span class="relative z-10 text-valley-cream/70">✦</span>
+            <span class="relative z-10 text-valley-cream/70">
+              Enter the valley
+            </span>
+            <span class="relative z-10 text-valley-cream/70">✦</span>
+          </button>
+
+          <p class="text-sm text-valley-sand/60 tracking-[0.3em] uppercase">
+            The gates will open soon...
+          </p>
+        </footer>
+      </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="fixed bottom-0 left-0 right-0 py-3 px-6 z-10">
+      <div class="flex items-center justify-between">
+        <p class="text-valley-sand/60 text-sm">
+          Made with ❤️ by 
+          <a 
+            href="https://github.com/leoocast" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-valley-lavender hover:text-valley-purple transition-colors"
+          >Arky</a>
+        </p>
+        <p class="text-valley-sand/40 text-xs">
+          © 2026 Lo-Fi Valley
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
