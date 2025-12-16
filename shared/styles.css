@@ -27,7 +27,8 @@ body {
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg) scale(1);
   }
   25% {
@@ -48,11 +49,21 @@ body {
 }
 
 /* Staggered animation delays */
-.fade-in-delay-1 { animation-delay: 0.1s; }
-.fade-in-delay-2 { animation-delay: 0.3s; }
-.fade-in-delay-3 { animation-delay: 0.5s; }
-.fade-in-delay-4 { animation-delay: 0.7s; }
-.fade-in-delay-5 { animation-delay: 0.9s; }
+.fade-in-delay-1 {
+  animation-delay: 0.1s;
+}
+.fade-in-delay-2 {
+  animation-delay: 0.3s;
+}
+.fade-in-delay-3 {
+  animation-delay: 0.5s;
+}
+.fade-in-delay-4 {
+  animation-delay: 0.7s;
+}
+.fade-in-delay-5 {
+  animation-delay: 0.9s;
+}
 
 @keyframes popIn {
   0% {
@@ -115,7 +126,13 @@ body {
 
 /* Volume Slider Styling */
 .volume-slider {
-  background: linear-gradient(to right, #B5A5C9 0%, #B5A5C9 50%, rgba(255,248,240,0.2) 50%, rgba(255,248,240,0.2) 100%);
+  background: linear-gradient(
+    to right,
+    #b5a5c9 0%,
+    #b5a5c9 50%,
+    rgba(255, 248, 240, 0.2) 50%,
+    rgba(255, 248, 240, 0.2) 100%
+  );
 }
 
 .volume-slider::-webkit-slider-thumb {
@@ -123,9 +140,9 @@ body {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #FFF8F0;
+  background: #fff8f0;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s;
 }
 
@@ -137,10 +154,10 @@ body {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #FFF8F0;
+  background: #fff8f0;
   cursor: pointer;
   border: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Marquee Animation */
@@ -164,6 +181,30 @@ body {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+/* Discord Pop Animation */
+.discord-pop {
+  opacity: 0;
+  animation: discordPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  animation-delay: 3.4s; /* Starts after the slogan animation completes */
+}
+
+@keyframes discordPop {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  50% {
+    transform: scale(1.15) rotate(10deg);
+  }
+  75% {
+    transform: scale(0.95) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
   }
 }
 
