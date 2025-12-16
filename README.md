@@ -43,13 +43,6 @@
 - ♿ Accesible (aria-labels, sr-only)
 - 🎨 Diseño glassmorphism
 
-## 🚀 Despliegue
-
-El sitio está listo para desplegarse en cualquier hosting estático:
-- Vercel
-- Netlify
-- GitHub Pages
-- Cloudflare Pages
 
 ## 👨‍💻 Autor
 
