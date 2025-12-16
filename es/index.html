@@ -39,7 +39,7 @@
     <!-- Hreflang for multilingual -->
     <link rel="alternate" hreflang="es" href="https://lofivalley.com/es/" />
     <link rel="alternate" hreflang="en" href="https://lofivalley.com/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://lofivalley.com/es/" />
+    <link rel="alternate" hreflang="x-default" href="https://lofivalley.com/" />
     <link rel="canonical" href="https://lofivalley.com/es/" />
     
     <title>Lo-Fi Valley — Tu refugio digital</title>
@@ -104,54 +104,6 @@
         },
       }
     </script>
-
-    <style>
-      body {
-        background: linear-gradient(
-          135deg,
-          #4a3c2f 0%,
-          #3a4f5c 35%,
-          #8b7ba8 70%,
-          #6b5444 100%
-        );
-        min-height: 100vh;
-      }
-
-      .glass {
-        background: rgba(255, 248, 240, 0.08);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 248, 240, 0.15);
-      }
-
-      .floating {
-        animation: float 10s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-18px);
-        }
-      }
-
-      .fade-in {
-        animation: fadeIn 1.2s ease-in;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    </style>
   </head>
 
   <body class="text-valley-cream font-sans antialiased overflow-x-hidden">
@@ -217,57 +169,6 @@
         </div>
       </div>
     </div>
-
-    <style>
-      .volume-slider {
-        background: linear-gradient(to right, #B5A5C9 0%, #B5A5C9 50%, rgba(255,248,240,0.2) 50%, rgba(255,248,240,0.2) 100%);
-      }
-      .volume-slider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        background: #FFF8F0;
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        transition: transform 0.2s;
-      }
-      .volume-slider::-webkit-slider-thumb:hover {
-        transform: scale(1.2);
-      }
-      .volume-slider::-moz-range-thumb {
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        background: #FFF8F0;
-        cursor: pointer;
-        border: none;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      }
-      
-      .marquee-container {
-        width: 140px;
-      }
-      
-      .marquee-track {
-        display: flex;
-        width: fit-content;
-        animation: marquee 8s linear infinite;
-      }
-      
-      .marquee-text {
-        padding-right: 2rem;
-      }
-      
-      @keyframes marquee {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-    </style>
 
     <script>
       const audio = document.getElementById('bgMusic');
@@ -357,17 +258,17 @@
     <main
       class="relative min-h-screen flex items-center justify-center px-6 py-12 md:py-16"
     >
-      <div class="max-w-5xl w-full space-y-16 fade-in">
+      <div class="max-w-5xl w-full space-y-16">
         <!-- Header -->
         <header class="text-center space-y-6">
           <img
             src="/public/images/logo.png"
             alt="Lo-Fi Valley, un refugio digital con música lo-fi"
-            class="w-full max-w-3xl mx-auto drop-shadow-2xl"
+            class="w-full max-w-3xl mx-auto drop-shadow-2xl fade-in"
           />
           <h1 class="sr-only">Lo-Fi Valley — Un refugio digital con música lo-fi</h1>
 
-          <div class="glass inline-block px-8 py-3 rounded-full">
+          <div class="glass inline-block px-8 py-3 rounded-full fade-in fade-in-delay-1">
             <p class="text-sm tracking-[0.2em] uppercase text-valley-sand">
               ✨ Música lo-fi · Sin anuncios · Sin distracciones ✨
             </p>
@@ -376,7 +277,7 @@
 
         <!-- Core activities -->
         <section class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div class="glass rounded-2xl p-8">
+          <div class="glass rounded-2xl p-8 fade-in fade-in-delay-2">
             <div class="text-5xl mb-4">🌱</div>
             <h3 class="text-2xl mb-3 text-valley-sand font-medium"><strong>Planta</strong></h3>
             <p class="text-valley-sand/80">
@@ -384,7 +285,7 @@
             </p>
           </div>
 
-          <div class="glass rounded-2xl p-8">
+          <div class="glass rounded-2xl p-8 fade-in fade-in-delay-3">
             <div class="text-5xl mb-4">🎣</div>
             <h3 class="text-2xl mb-3 text-valley-sand font-medium"><strong>Pesca</strong></h3>
             <p class="text-valley-sand/80">
@@ -392,7 +293,7 @@
             </p>
           </div>
 
-          <div class="glass rounded-2xl p-8">
+          <div class="glass rounded-2xl p-8 fade-in fade-in-delay-4">
             <div class="text-5xl mb-4">⛏️</div>
             <h3 class="text-2xl mb-3 text-valley-sand font-medium"><strong>Explora</strong></h3>
             <p class="text-valley-sand/80">
@@ -402,7 +303,7 @@
         </section>
 
         <!-- Footer -->
-        <footer class="text-center space-y-6">
+        <footer class="text-center space-y-6 slide-up">
           <button
             disabled
             class="relative inline-flex items-center gap-4 px-20 py-7 rounded-full text-xl font-semibold tracking-wide cursor-not-allowed overflow-hidden shadow-[0_12px_48px_rgba(139,123,168,0.5)] border-2 border-valley-purple/50"
@@ -414,8 +315,8 @@
             <span class="relative z-10 text-valley-cream/70">✦</span>
           </button>
 
-          <p class="text-sm text-valley-sand/60 tracking-[0.3em] uppercase">
-            Las puertas abrirán pronto...
+          <p class="text-sm text-valley-sand/60 tracking-[0.3em] uppercase letter-pop-container">
+            <span class="letter-pop" style="animation-delay: 1.8s">L</span><span class="letter-pop" style="animation-delay: 1.85s">a</span><span class="letter-pop" style="animation-delay: 1.9s">s</span><span class="letter-pop" style="animation-delay: 1.95s">&nbsp;</span><span class="letter-pop" style="animation-delay: 2.0s">p</span><span class="letter-pop" style="animation-delay: 2.05s">u</span><span class="letter-pop" style="animation-delay: 2.1s">e</span><span class="letter-pop" style="animation-delay: 2.15s">r</span><span class="letter-pop" style="animation-delay: 2.2s">t</span><span class="letter-pop" style="animation-delay: 2.25s">a</span><span class="letter-pop" style="animation-delay: 2.3s">s</span><span class="letter-pop" style="animation-delay: 2.35s">&nbsp;</span><span class="letter-pop" style="animation-delay: 2.4s">a</span><span class="letter-pop" style="animation-delay: 2.45s">b</span><span class="letter-pop" style="animation-delay: 2.5s">r</span><span class="letter-pop" style="animation-delay: 2.55s">i</span><span class="letter-pop" style="animation-delay: 2.6s">r</span><span class="letter-pop" style="animation-delay: 2.65s">á</span><span class="letter-pop" style="animation-delay: 2.7s">n</span><span class="letter-pop" style="animation-delay: 2.75s">&nbsp;</span><span class="letter-pop" style="animation-delay: 2.8s">p</span><span class="letter-pop" style="animation-delay: 2.85s">r</span><span class="letter-pop" style="animation-delay: 2.9s">o</span><span class="letter-pop" style="animation-delay: 2.95s">n</span><span class="letter-pop" style="animation-delay: 3.0s">t</span><span class="letter-pop" style="animation-delay: 3.05s">o</span><span class="letter-pop" style="animation-delay: 3.1s">.</span><span class="letter-pop" style="animation-delay: 3.15s">.</span><span class="letter-pop" style="animation-delay: 3.2s">.</span>
           </p>
         </footer>
       </div>

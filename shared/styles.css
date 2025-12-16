@@ -1,6 +1,7 @@
 /* Lo-Fi Valley - Shared Styles */
 
 /* Base Body Gradient */
+
 body {
   background: linear-gradient(
     135deg,
@@ -10,6 +11,7 @@ body {
     #6b5444 100%
   );
   min-height: 100vh;
+  height: 100vh;
 }
 
 /* Glass Morphism Effect */
@@ -19,34 +21,92 @@ body {
   border: 1px solid rgba(255, 248, 240, 0.15);
 }
 
-/* Floating Animation */
+/* Floating Animation - Cartoon Bounce */
 .floating {
-  animation: float 10s ease-in-out infinite;
+  animation: bounce 6s ease-in-out infinite;
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-8px) rotate(-5deg) scale(1.1);
   }
   50% {
-    transform: translateY(-18px);
+    transform: translateY(-15px) rotate(0deg) scale(1.15);
+  }
+  75% {
+    transform: translateY(-8px) rotate(5deg) scale(1.1);
   }
 }
 
-/* Fade In Animation */
+/* Fade In Animation - Subtle Pop */
 .fade-in {
-  animation: fadeIn 1.2s ease-in;
+  opacity: 0;
+  animation: popIn 0.8s ease-out forwards;
 }
 
-@keyframes fadeIn {
-  from {
+/* Staggered animation delays */
+.fade-in-delay-1 { animation-delay: 0.1s; }
+.fade-in-delay-2 { animation-delay: 0.3s; }
+.fade-in-delay-3 { animation-delay: 0.5s; }
+.fade-in-delay-4 { animation-delay: 0.7s; }
+.fade-in-delay-5 { animation-delay: 0.9s; }
+
+@keyframes popIn {
+  0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: scale(0.95) translateY(10px);
   }
-  to {
+  60% {
+    opacity: 1;
+    transform: scale(1.02) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Slide Up Animation - CTA Button */
+.slide-up {
+  opacity: 0;
+  animation: slideUp 0.7s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Letter Pop Animation */
+.letter-pop {
+  display: inline-block;
+  opacity: 0;
+  animation: letterPop 0.4s ease-out forwards;
+}
+
+.letter-pop-container {
+  display: block;
+  text-align: center;
+}
+
+@keyframes letterPop {
+  0% {
+    opacity: 0;
+    transform: translateX(10px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
   }
 }
 
